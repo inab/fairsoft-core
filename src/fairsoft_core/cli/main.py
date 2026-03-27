@@ -73,6 +73,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="List available indicators and exit.",
     )
     indicator_parser.add_argument(
+        "--describe",
+        metavar="INDICATOR",
+        help="Show detailed information for one indicator and exit.",
+    )
+    indicator_parser.add_argument(
         "--input-format",
         default="native",
         choices=["native", "codemeta"],
