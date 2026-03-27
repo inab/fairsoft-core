@@ -1,0 +1,7 @@
+pydantic<3,>=2
+email-validator<3,>=2
+
+[dev]
+pytest>=8
+pytest-cov>=5
+ruff>=0.6
