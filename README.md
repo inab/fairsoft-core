@@ -182,4 +182,8 @@ A common local workflow is:
 ruff check . --fix
 ruff format .
 pytest
-```
+``` 
+
+Keep the `pyproject.toml` as the source of truth of the version. 
+
+There is `pre-push` hook that run all tests. 
