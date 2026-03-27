@@ -2,7 +2,6 @@ import logging
 from typing import Tuple
 
 from fairsoft_core.constants import SOFT_REG, STRUCT_META
-
 from fairsoft_core.indicators.utils import *
 
 # Configure the logger

@@ -1,8 +1,12 @@
 from typing import Any, Dict, List, Optional
 
-from fairsoft_core.constants import WEB_TYPES
-from fairsoft_core.models.fair_metrics import FAIRmetrics, FAIRscores  # Import the necessary classes
 from pydantic import AnyUrl, BaseModel, Field, field_validator, model_validator
+
+from fairsoft_core.constants import WEB_TYPES
+from fairsoft_core.models.fair_metrics import (  # Import the necessary classes
+    FAIRmetrics,
+    FAIRscores,
+)
 
 
 def remove_nones_empty_string(v):

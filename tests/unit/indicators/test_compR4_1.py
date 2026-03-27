@@ -1,5 +1,6 @@
-from fairsoft_core.models.instance import Instance
 from fairsoft_core.indicators.r_indicators import compR4_1
+from fairsoft_core.models.instance import Instance
+
 
 # Test cases for compR4_1 function
 def test_compR4_1_with_version_control_true():
@@ -14,6 +15,7 @@ def test_compR4_1_with_version_control_false():
     instance = Instance(version_control=False)
     result, logs = compR4_1(instance)
     assert result == False
+
 
 def test_compR4_1_with_version_control_none():
     # Case where version_control is None

@@ -6,7 +6,6 @@ from pathlib import Path
 
 from fairsoft_core.cli.main import main
 
-
 VALID_EVALUATION_INPUT = {
     "name": "Flower",
     "type": ["lib"],

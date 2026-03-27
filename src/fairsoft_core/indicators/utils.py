@@ -1,6 +1,7 @@
 from typing import List
 
 import requests
+
 from fairsoft_core.models.instance import Instance
 
 
@@ -22,10 +23,10 @@ def is_url_operational(url: str, timeout: int = 15) -> bool:
         if response.status_code >= 200 and response.status_code < 300:
             return True  # URL is operational
         else:
-            #print(f"URL responded with status: {response.status_code}")
+            # print(f"URL responded with status: {response.status_code}")
             return False  # URL is not operational
-    except requests.RequestException as e:
-        #print(f"Error checking URL: {e}")
+    except requests.RequestException:
+        # print(f"Error checking URL: {e}")
         return False  # URL is not operational
 
 

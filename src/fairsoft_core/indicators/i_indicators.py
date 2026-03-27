@@ -7,7 +7,6 @@ from fairsoft_core.constants import (
     E_INFRASTRUCTURES_SOURCES,
     VERIFIABLE_FORMATS,
 )
-
 from fairsoft_core.indicators.utils import *
 
 logger = logging.getLogger(__name__)

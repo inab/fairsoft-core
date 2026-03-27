@@ -1,8 +1,8 @@
-from fairsoft_core.models.fair_metrics import FAIRLogs, FAIRmetrics
 from fairsoft_core.indicators.a_indicators import *
 from fairsoft_core.indicators.f_indicators import *
 from fairsoft_core.indicators.i_indicators import *
 from fairsoft_core.indicators.r_indicators import *
+from fairsoft_core.models.fair_metrics import FAIRLogs, FAIRmetrics
 
 
 class IndicatorComputation:

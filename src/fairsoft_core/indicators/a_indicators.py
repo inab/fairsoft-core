@@ -6,7 +6,6 @@ from fairsoft_core.constants import (
     FREE_OS,
     INSTALL_INTRUCTIONS_SOURCES,
 )
-
 from fairsoft_core.indicators.utils import *
 
 

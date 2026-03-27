@@ -1,12 +1,8 @@
-
 import json
 import sys
 from pathlib import Path
 
-import pytest
-
 from fairsoft_core.cli.main import main
-
 
 VALID_F3_1_PASSING_INPUT = {
     "name": "ExampleTool",

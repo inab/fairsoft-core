@@ -8,7 +8,6 @@ def load_feedback_rules() -> dict:
 
 
 def get_feedback(result):
-
     # open FAIR_indicators_feedback
     feedback_per_indicator = load_feedback_rules()
 

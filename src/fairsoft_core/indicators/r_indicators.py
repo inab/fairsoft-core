@@ -1,9 +1,13 @@
 from typing import List, Tuple
 
-from fairsoft_core.constants import CONTRIBUTION_POLICY_TYPES, NO_GUIDE, PERMISSIONS_TYPES, RELEASE_POLICY_TYPES
-from fairsoft_core.models.instance import Instance
-
+from fairsoft_core.constants import (
+    CONTRIBUTION_POLICY_TYPES,
+    NO_GUIDE,
+    PERMISSIONS_TYPES,
+    RELEASE_POLICY_TYPES,
+)
 from fairsoft_core.indicators.utils import *
+from fairsoft_core.models.instance import Instance
 
 
 def compR1_1(instance: Instance) -> Tuple[bool, List[str]]:
