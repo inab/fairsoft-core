@@ -1,5 +1,6 @@
 import argparse
 
+from fairsoft_core import __version__
 from fairsoft_core.cli.commands.evaluate import run_evaluate_command
 from fairsoft_core.cli.commands.indicator import run_indicator_command
 
@@ -8,6 +9,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="fairsoft",
         description="FAIRsoft CLI for research software metadata evaluation.",
+    )
+
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"fairsoft {__version__}",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)

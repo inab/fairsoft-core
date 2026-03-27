@@ -12,6 +12,13 @@ For local development:
 pip install -e .
 ```
 
+To install directly from GitHub:
+
+```bash
+pip install  "git+https://github.com/inab/fairsoft-core.git@v0.1.0"
+```
+
+
 ## What this package does
 
 - computes FAIRsoft indicators

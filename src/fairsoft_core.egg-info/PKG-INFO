@@ -1,17 +1,19 @@
 Metadata-Version: 2.4
 Name: fairsoft-core
-Version: 0.1.0
+Version: 0.1.1
 Summary: Core FAIRsoft evaluation engine for research software metadata
 Author: Eva Martin del Pico
-License: Apache-2.0
+License: MIT
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Requires-Dist: pydantic<3,>=2
 Requires-Dist: email-validator<3,>=2
 Provides-Extra: dev
 Requires-Dist: pytest>=8; extra == "dev"
 Requires-Dist: pytest-cov>=5; extra == "dev"
 Requires-Dist: ruff>=0.6; extra == "dev"
+Dynamic: license-file
 
 # fairsoft-core
 
@@ -27,11 +29,12 @@ For local development:
 pip install -e .
 ```
 
-To install development dependencies as well:
+To install directly from GitHub:
 
 ```bash
-pip install -e .[dev]
+pip install  "git+https://github.com/inab/fairsoft-core.git@v0.1.0"
 ```
+
 
 ## What this package does
 

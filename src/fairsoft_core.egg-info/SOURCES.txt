@@ -1,3 +1,4 @@
+LICENSE
 README.md
 pyproject.toml
 src/fairsoft_core/EDAM_forFE.py
@@ -17,7 +18,6 @@ src/fairsoft_core/cli/commands/__init__.py
 src/fairsoft_core/cli/commands/evaluate.py
 src/fairsoft_core/cli/commands/indicator.py
 src/fairsoft_core/evaluation/__init__.py
-src/fairsoft_core/evaluation/a_1.py
 src/fairsoft_core/evaluation/all_indicators.py
 src/fairsoft_core/feedback/FAIR_indicators_feedback.json
 src/fairsoft_core/feedback/__init__.py
