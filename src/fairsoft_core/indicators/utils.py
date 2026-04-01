@@ -5,7 +5,7 @@ import requests
 from fairsoft_core.models.instance import Instance
 
 
-def is_url_operational(url: str, timeout: int = 15) -> bool:
+def is_url_operational(url: str, timeout: int = 60) -> bool:
     """
     Check if a URL is operational by performing a HEAD request.
 
