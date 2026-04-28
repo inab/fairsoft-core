@@ -15,7 +15,7 @@ pip install -e .
 To install directly from GitHub:
 
 ```bash
-pip install  "git+https://github.com/inab/fairsoft-core.git@v0.1.0"
+pip install  "git+https://github.com/inab/fairsoft-core.git@v0.1.1"
 ```
 
 
