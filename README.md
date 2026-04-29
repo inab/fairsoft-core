@@ -2,40 +2,51 @@
 
 Core FAIRsoft evaluation engine for research software metadata.
 
-This package contains the reusable evaluation logic for FAIRsoft indicators and scores.
+`fairsoft-core` provides the reusable logic used to compute FAIRsoft indicators, FAIR scores, and evaluation feedback from normalized research software metadata.
 
 ## Installation
+
+Install the latest release from PyPI:
+
+```bash
+pip install fairsoft-core
+```
+
+Install a specific version:
+
+```bash
+pip install fairsoft-core==0.1.1
+```
 
 For local development:
 
 ```bash
-pip install -e .
+git clone https://github.com/inab/fairsoft-core.git
+cd fairsoft-core
+pip install -e ".[dev]"
 ```
 
-To install directly from GitHub:
+Development versions can also be installed directly from GitHub:
 
 ```bash
-pip install  "git+https://github.com/inab/fairsoft-core.git@v0.1.1"
+pip install "fairsoft-core @ git+https://github.com/inab/fairsoft-core.git@main"
 ```
-
 
 ## What this package does
 
-- computes FAIRsoft indicators
-- computes FAIR scores
-- generates feedback
-- exposes a CLI for evaluation workflows
+- Computes FAIRsoft indicators.
+- Computes FAIR scores.
+- Generates evaluation feedback.
+- Provides a command-line interface for FAIRsoft evaluation workflows.
+- Provides reusable Python functions for integration into other services.
 
 ## Input expectations
 
-The core evaluator expects metadata already normalized to the internal FAIRsoft input model.
+The evaluator expects metadata that has already been normalized to the internal FAIRsoft input model.
 
-This means:
+This means that `fairsoft-core` does **not** prepare, clean, enrich, or disambiguate raw metadata. The input JSON must already match the structure expected by the core `Instance` model.
 
-- the package does **not** prepare or enrich raw metadata
-- the input JSON must already match the structure expected by the core `Instance` model
-
-## Usage
+## Command-line usage
 
 ### Full FAIRsoft evaluation
 
@@ -45,13 +56,13 @@ Run a full FAIRsoft evaluation from a JSON file:
 fairsoft evaluate path/to/metadata.json
 ```
 
-Write output to a file:
+Write the output to a file:
 
 ```bash
 fairsoft evaluate path/to/metadata.json --output result.json
 ```
 
-Select only part of the evaluation output:
+Return only part of the evaluation output:
 
 ```bash
 fairsoft evaluate path/to/metadata.json --select result
@@ -67,11 +78,11 @@ fairsoft evaluate path/to/metadata.json --select result --format json-compact
 
 ### Single-indicator evaluation
 
-List the indicators currently available in the CLI:
+List the indicators currently available through the CLI:
 
 ```bash
 fairsoft indicator --list
-``` 
+```
 
 Describe one indicator:
 
@@ -92,7 +103,7 @@ Run the same indicator by name:
 fairsoft indicator searchability_in_registries path/to/metadata.json
 ```
 
-Select only the result or logs:
+Return only the result or logs:
 
 ```bash
 fairsoft indicator F3_1 path/to/metadata.json --select result
@@ -104,7 +115,6 @@ Write compact output to a file:
 ```bash
 fairsoft indicator F3_1 path/to/metadata.json --select logs --format json-compact --output f3_1_logs.json
 ```
-
 
 ## CLI output options
 
@@ -144,9 +154,21 @@ fairsoft evaluate path/to/metadata.json --select result --format json-compact
 fairsoft indicator F3_1 path/to/metadata.json --select logs --format json
 ```
 
+## Python usage
+
+Run a full FAIRsoft evaluation programmatically:
+
+```python
+from fairsoft_core.evaluation import run_fairsoft_evaluation
+
+result = run_fairsoft_evaluation(tool_metadata)
+```
+
+`tool_metadata` must be a dictionary or object compatible with the FAIRsoft input model used by the evaluator.
+
 ## Indicator metadata requirements
 
-> **Note.** The “Equivalent CodeMeta fields” column reflects the current minimal adapter implemented in `fairsoft-core`, not the full set of CodeMeta fields that could theoretically be mapped in future versions. Entries marked as “partially” indicate indirect or limited support. 
+> **Note.** The “Equivalent CodeMeta fields” column reflects the current minimal adapter implemented in `fairsoft-core`, not the full set of CodeMeta fields that could theoretically be mapped in future versions. Entries marked as “partially” indicate indirect or limited support.
 
 | Indicator | Name | Fields used | Minimum metadata | Equivalent CodeMeta fields | Not applicable when |
 |---|---|---|---|---|---|
@@ -183,28 +205,14 @@ fairsoft indicator F3_1 path/to/metadata.json --select logs --format json
 | R4_1 | `public_version_control` | `version_control` | `version_control` | no direct minimal mapping (`codeRepository` suggests it, but the adapter does not infer `version_control`) | — |
 | R4_2 | `release_policy` | `documentation` | `documentation` | `documentation`, `readme`, `softwareHelp` | — |
 
-## Python usage
 
-Run a full FAIRsoft evaluation programmatically:
+## Development
 
-```python
-from fairsoft_core.evaluation import run_fairsoft_evaluation
+Install the package with development dependencies:
 
-result = run_fairsoft_evaluation(tool_metadata)
+```bash
+pip install -e ".[dev]"
 ```
-
-## Exit codes
-
-The CLI uses the following exit codes:
-
-- `0`: success
-- `1`: unexpected error
-- `2`: input error or invalid CLI usage
-- `3`: evaluation error
-- `4`: input file not found
-- `5`: command not implemented
-
-## Development notes
 
 A common local workflow is:
 
@@ -212,8 +220,8 @@ A common local workflow is:
 ruff check . --fix
 ruff format .
 pytest
-``` 
+```
 
-Keep the `pyproject.toml` as the source of truth of the version. 
+Keep `pyproject.toml` as the source of truth for the package version.
 
-There is `pre-push` hook that run all tests. 
+The repository includes a `pre-push` hook that runs the test suite before code is pushed.
