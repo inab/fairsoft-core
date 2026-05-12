@@ -47,7 +47,9 @@ class Publication(BaseModel):
 
     @field_validator("year", mode="before")
     def convert_string_year(cls, v):
-        if isinstance(v, str):
+        if v == "":
+            return None
+        elif isinstance(v, str):
             return int(v)
         return v
 
